@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "not-iris",
+  "version": "${version}",
+  "name": "Not Iris",
+  "description": "not iris bro",
+  "authors": [
+    "bytetilde"
+  ],
+  "contact": {
+    "sources": "https://github.com/bytetilde/notiris"
+  },
+  "license": "MIT",
+  "icon": "assets/not-iris/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.bytetilde.notiris.NotIris"
+    ]
+  },
+  "mixins": [
+    "not-iris.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
