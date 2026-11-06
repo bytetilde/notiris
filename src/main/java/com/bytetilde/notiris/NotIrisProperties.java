@@ -14,6 +14,14 @@ import java.util.Set;
 
 public final class NotIrisProperties {
   public static final String FILE_NAME = "notiris.properties";
+  public static final String MESH = "notiris.mesh";
+  public static final boolean MESH_DEFAULT = false;
+  public static final String MESH_WINDOW_WIDTH = "notiris.mesh.window.width";
+  public static final int MESH_WINDOW_WIDTH_DEFAULT = 7;
+  public static final String MESH_WINDOW_HEIGHT = "notiris.mesh.window.height";
+  public static final int MESH_WINDOW_HEIGHT_DEFAULT = 5;
+  public static final String MESH_WINDOW_DEPTH = "notiris.mesh.window.depth";
+  public static final int MESH_WINDOW_DEPTH_DEFAULT = 7;
   private static volatile Map<String, String> entries = Map.of();
   private NotIrisProperties() {}
   public static void load(Path shadersDir) {
@@ -81,6 +89,18 @@ public final class NotIrisProperties {
       NotIris.LOGGER.warn("invalid float for {}: {}", key, value);
       return fallback;
     }
+  }
+  public static boolean mesh() {
+    return getBoolean(MESH, MESH_DEFAULT);
+  }
+  public static int meshWindowWidth() {
+    return getInt(MESH_WINDOW_WIDTH, MESH_WINDOW_WIDTH_DEFAULT);
+  }
+  public static int meshWindowHeight() {
+    return getInt(MESH_WINDOW_HEIGHT, MESH_WINDOW_HEIGHT_DEFAULT);
+  }
+  public static int meshWindowDepth() {
+    return getInt(MESH_WINDOW_DEPTH, MESH_WINDOW_DEPTH_DEFAULT);
   }
   public static Set<String> keys() {
     return entries.keySet();
